@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 12px;
+
+
+}
+
+.wrapperInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  gap: 6px;
+  /* max-width: 80%; */
+
+}
+
+.contactInfo {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
