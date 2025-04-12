@@ -8,7 +8,7 @@ is built using **Vite** and deployed on **Vercel**.
 This project extends the functionality of Homework Assignment 7 by **adding user
 authentication** and **integrating with a ready-made backend**. Instead of using
 `mockapi.io`, the application now interacts with a production-ready API:  
-🔗 **[Connections API](https://connections-api.goit.global/)**
+🔗 **[Connections API](https://connections-api.goit.global/docs)**
 
 Users must **register and log in** to access their personal contact list.
 Contacts are stored securely on the backend, ensuring **each user sees only

@@ -1,19 +1,19 @@
-import ContactList from '../ContactList/ContactList';
-import SearchBox from '../SearchBox/SearchBox';
-import ContactForm from '../ContactForm/ContactForm';
-import Loader from '../Loader';
-import ErrorMessage from '../ErrorMessage';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from '../../redux/contactsOps';
 import {
   selectContacts,
-  selectLoading,
   selectError,
+  selectLoading,
 } from '../../redux/contactsSlice';
-import css from './App.module.css';
+import PageTitle from '../../components/PageTitle/PageTitle';
+import ContactList from '../../components/ContactList/ContactList';
+import SearchBox from '../../components/SearchBox/SearchBox';
+import ContactForm from '../../components/ContactForm/ContactForm';
+import Loader from '../../components/Loader';
+import ErrorMessage from '../../components/ErrorMessage';
 
-export default function App() {
+export default function ContactsPage() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const loading = useSelector(selectLoading);
@@ -24,15 +24,14 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <div className={css.container}>
-      <h1 className={css.title}>Phonebook</h1>
+    <>
+      <PageTitle>Your Phonebook</PageTitle>
 
       <ContactForm />
-
       <SearchBox />
       {loading && <Loader />}
       {error && <ErrorMessage />}
       {contacts.length > 0 && <ContactList />}
-    </div>
+    </>
   );
 }
