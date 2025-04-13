@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { logIn } from '../../redux/auth/operations';
+import { LoginSchema } from '../../utils/validationSchemas';
 import css from './LoginForm.module.css';
 
 export default function LoginForm() {
@@ -18,15 +19,18 @@ export default function LoginForm() {
         password: '',
       }}
       onSubmit={handleSubmit}
+      validationSchema={LoginSchema}
     >
       <Form className={css.form} autoComplete="off">
         <label className={css.label}>
           Email
           <Field className={css.input} type="email" name="email" />
+          <ErrorMessage className={css.error} component="p" name="email" />
         </label>
         <label className={css.label}>
           Password
           <Field className={css.input} type="password" name="password" />
+          <ErrorMessage className={css.error} component="p" name="password" />
         </label>
         <button className={css.button} type="submit">
           Log in
