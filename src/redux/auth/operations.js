@@ -31,4 +31,6 @@ export const logIn = createAsyncThunk(
   }
 );
 
-export const logOut = createAsyncThunk('auth/logout', async () => {});
+export const logOut = createAsyncThunk('auth/logout', async () => {
+  await axios.post('/users/logout');
+});
