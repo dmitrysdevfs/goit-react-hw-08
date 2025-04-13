@@ -5,7 +5,7 @@ import {
   selectContacts,
   selectError,
   selectLoading,
-} from '../../redux/contacts/slice';
+} from '../../redux/contacts/selectors';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import ContactList from '../../components/ContactList/ContactList';
 import SearchBox from '../../components/SearchBox/SearchBox';
