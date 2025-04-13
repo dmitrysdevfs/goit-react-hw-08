@@ -5,7 +5,7 @@ import {
   deleteContact,
 } from '../contacts/operations';
 
-const slice = createSlice({
+const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
     items: [],
@@ -53,4 +53,4 @@ const slice = createSlice({
   },
 });
 
-export default slice.reducer;
+export default contactsSlice.reducer;
