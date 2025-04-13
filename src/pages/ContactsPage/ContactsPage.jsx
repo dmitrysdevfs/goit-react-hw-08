@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContacts } from '../../redux/contactsOps';
+import { fetchContacts } from '../../redux/contacts/operations';
 import {
   selectContacts,
   selectError,
   selectLoading,
-} from '../../redux/contactsSlice';
+} from '../../redux/contacts/slice';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import ContactList from '../../components/ContactList/ContactList';
 import SearchBox from '../../components/SearchBox/SearchBox';
