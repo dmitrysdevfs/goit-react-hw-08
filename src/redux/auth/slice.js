@@ -12,6 +12,7 @@ const authSlice = createSlice({
     isLoggedIn: false,
     loading: false,
     error: null,
+    refreshing: false,
   },
 
   reducers: {
@@ -50,14 +51,34 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload || 'Login failed';
       })
+      .addCase(logOut.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
+        state.loading = false;
+      })
+      .addCase(logOut.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Logout failed';
+      })
+      .addCase(refreshUser.pending, state => {
+        state.refreshing = true;
+        state.error = null;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
+        state.refreshing = false;
         state.isLoggedIn = true;
+      })
+      .addCase(refreshUser.rejected, (state, action) => {
+        state.refreshing = false;
+        state.error = action.payload || 'Failed to refresh session';
+        state.user = { name: null, email: null };
+        state.isLoggedIn = false;
       }),
 });
 
