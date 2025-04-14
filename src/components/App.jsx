@@ -5,6 +5,7 @@ import Layout from './Layout/Layout';
 import Loader from './Loader';
 import RestrictedRoute from './RestrictedRoute';
 import PrivateRoute from './PrivateRoute';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import { refreshUser } from '../redux/auth/operations';
 import { selectRefreshing } from '../redux/auth/selectors';
 
@@ -64,6 +65,7 @@ export default function App() {
               <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
             }
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </Layout>
