@@ -74,9 +74,8 @@ const authSlice = createSlice({
         state.refreshing = false;
         state.isLoggedIn = true;
       })
-      .addCase(refreshUser.rejected, (state, action) => {
+      .addCase(refreshUser.rejected, state => {
         state.refreshing = false;
-        state.error = action.payload || 'Failed to refresh session';
         state.user = { name: null, email: null };
         state.isLoggedIn = false;
       }),
