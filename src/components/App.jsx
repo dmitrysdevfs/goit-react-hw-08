@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 import Layout from './Layout/Layout';
 import Loader from './Loader';
 import RestrictedRoute from './RestrictedRoute';
@@ -67,6 +68,7 @@ export default function App() {
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <Toaster position="top-center" />
       </Suspense>
     </Layout>
   );
