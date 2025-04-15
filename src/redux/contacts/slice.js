@@ -3,6 +3,7 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
+  editContact,
 } from '../contacts/operations';
 import { logOut } from '../auth/operations';
 
@@ -50,6 +51,12 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, state => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(editContact.fulfilled, (state, action) => {
+        const index = state.items.findIndex(
+          contact => contact.id === action.payload.id
+        );
+        if (index !== -1) state.items[index] = action.payload;
       })
       .addCase(logOut.fulfilled, state => {
         state.items = [];
